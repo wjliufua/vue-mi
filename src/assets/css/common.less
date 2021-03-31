@@ -16,6 +16,18 @@ li {
     list-style: none;
 }
 
+.el_show {
+    display: block;
+}
+
+.all_goods {
+    color: #fff;
+}
+
+.mouse_default {
+    cursor: default;
+}
+
 html {
     font-family: sans-serif;
 
@@ -29,6 +41,7 @@ html {
             font-family: "iconfont" !important;
             font-style: normal;
             -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
             -webkit-text-stroke-width: .2px;
         }
 
@@ -77,6 +90,10 @@ html {
                     line-height: 40px;
                     height: 40px;
                     color: #b0b0b0;
+                }
+
+                a:hover {
+                    color: #fff;
                 }
 
                 span {
@@ -175,6 +192,7 @@ html {
 
         // 头部搜索分类
         .site_header {
+            position: relative;
             // .container {
             //     width: 1226px;
             //     margin: 0 auto;
@@ -189,6 +207,7 @@ html {
                     position: relative;
                     width: 55px;
                     height: 55px;
+                    border-radius: 19px;
                     overflow: hidden;
                     color: #fff;
                     background-color: #ff6700;
@@ -239,19 +258,152 @@ html {
                             color: #333;
                             transition: color .2s;
                             padding: 26px 10px 38px;
+                        }
 
-                            .category_text {}
+                        .link_category:hover {
+                            color: #ff6700;
                         }
                     }
 
                     .nav_category {
+                        height: 88px;
                         width: 127px;
                         padding-right: 15px;
+                        position: relative;
 
                         .link_category {
+                            // display: none;
                             width: 127px;
+                            height: 22px;
                             text-align: right;
                             padding: 26px 0px 38px;
+
+                            span {
+                                display: none;
+                            }
+                        }
+
+                        .link_category:hover {
+                            color: #333;
+                        }
+
+                        // 侧边分类导航栏
+                        .side_category {
+                            position: absolute;
+                            display: block;
+                            z-index: 1;
+                            top: 88px;
+                            left: -92px;
+                            width: 234px;
+                            height: 460px;
+                            font-size: 14px;
+
+                            &>ul {
+                                height: 420px;
+                                border: 0;
+                                color: #fff;
+                                padding: 20px 0;
+                                cursor: default;
+                                background-color: rgba(105, 101, 101, .6);
+
+                                &>li {
+                                    float: none;
+
+                                    &>a {
+                                        position: relative;
+                                        text-align: left;
+                                        color: #fff;
+                                        display: block;
+                                        padding-left: 30px;
+                                        height: 42px;
+                                        line-height: 42px;
+
+                                        em {
+                                            position: absolute;
+                                            top: 12px;
+                                            right: 20px;
+                                            font-size: 16px;
+                                            line-height: 16px;
+                                            font-style: normal;
+                                        }
+
+                                        // em::before {
+                                        //     content: "\e605";
+                                        // }
+                                    }
+
+                                    &>a:hover {
+                                        background-color: #ff6700;
+                                    }
+
+                                    &>a:hover .category_box {
+                                        display: block !important;
+                                    }
+
+                                    .category_box {
+                                        display: none !important;
+                                        width: 992px;
+                                        display: block;
+                                        position: absolute;
+                                        z-index: 1;
+                                        left: 234px;
+                                        top: 0;
+                                        height: 458px;
+                                        border: 1px solid #e0e0e0;
+                                        background-color: #fff;
+
+                                        ul {
+                                            float: left;
+                                            width: 248px;
+                                            height: 458px;
+                                            padding: 2px 0;
+
+                                            li {
+                                                a {
+                                                    display: block;
+                                                    padding: 18px 20px;
+                                                    color: #333;
+                                                    transition: color .2s;
+
+                                                    img {
+                                                        float: left;
+                                                        width: 40px;
+                                                        height: 40px;
+                                                        margin-right: 12px;
+                                                        vertical-align: middle;
+                                                        // background: url('https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/ab345272bf9894bb8269d4901344b068.png?thumb=1&w=40&h=40&f=webp&q=90') 0 0;
+                                                    }
+
+                                                    span {
+                                                        display: block;
+                                                        float: left;
+                                                        // width: 172px;
+                                                        line-height: 40px;
+                                                        white-space: nowrap;
+                                                        text-overflow: ellipsis;
+                                                        overflow: hidden;
+                                                    }
+                                                }
+
+                                                a:hover {
+                                                    color: #ff6700;
+                                                }
+
+                                                a::before {
+                                                    content: "";
+                                                    display: table;
+                                                }
+
+                                                a::after {
+                                                    content: "";
+                                                    clear: both;
+                                                    display: table;
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
                         }
                     }
 
@@ -326,7 +478,13 @@ html {
                             width: 223px;
                             line-height: 48px;
                         }
+
+                        input:focus {
+                            outline: none;
+                            border: 1px solid rgb(255, 86, 0);
+                        }
                     }
+
 
                     .search_submit {
                         input {
@@ -340,11 +498,12 @@ html {
                             line-height: 24px;
                             font-size: 24px;
                             background-color: #fff;
+                            outline: none;
                         }
 
                         input::before {
                             content: "\e615";
-                            position: relative;
+                            position: absolute;
                             top: 0;
                             right: 0;
                             color: #000;
@@ -389,6 +548,59 @@ html {
                 content: "";
                 display: table;
                 clear: both;
+            }
+
+            .navMenu {
+                display: none;
+                position: absolute;
+                z-index: 2;
+                top: 100px;
+                left: 0;
+                width: 100%;
+                border-top: 1px solid #e0e0e0;
+                background-color: #fff;
+                overflow: hidden;
+                box-shadow: 0 5px 5px rgba(0, 0, 0, .2);
+
+                ul {
+                    li {
+                        float: left;
+                        width: 180px;
+                        padding: 36px 12px;
+                        text-align: center;
+
+                        a {
+                            color: #333;
+
+                            .menu_img {
+                                width: 160px;
+                                height: 110px;
+                                margin: 0 auto 16px;
+                                text-align: center;
+                                border-right: 1px solid #ccc;
+
+                                img {
+                                    width: 160px;
+                                    height: 110px;
+                                }
+                            }
+
+                            .title {
+                                color: #333;
+                                line-height: 20px;
+                            }
+
+                            .price {
+                                color: #ff6700;
+                                line-height: 20px;
+                            }
+                        }
+                    }
+
+                    li:last-child a>div {
+                        border: none;
+                    }
+                }
             }
         }
     }

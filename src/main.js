@@ -1,4 +1,5 @@
 import Vue from 'vue'
+// 引入jquery
 import $ from 'jquery'
 
 import App from './App.vue'

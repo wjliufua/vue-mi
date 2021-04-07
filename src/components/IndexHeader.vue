@@ -71,7 +71,7 @@
                   <div class="side_category">
                     <ul>
                       <li>
-                        <a href="#">
+                        <a href="#" :mousemove="changeSideBox()">
                           手机 电话卡
                           <em class="iconfont icon-youjiantou1"></em>
                         </a>
@@ -540,6 +540,10 @@ export default {
     // 全部分类商品文本是否显示
     navCategoryShow() {
       this.$route.path === '/' ? (this.index = true) : (this.index = false)
+    },
+    // 控制侧边商品分类盒子展开
+    changeSideBox() {
+      console.log(123)
     }
   }
 }

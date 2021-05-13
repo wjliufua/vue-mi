@@ -1,12 +1,10 @@
 <template>
   <div>
-    <IndexHeader></IndexHeader>
+    <Header></Header>
     <!-- 轮播推荐部分 -->
     <div class="home-hero-container">
       <div class="home-hero">
-        <!-- 轮播图主体 -->
-        <div class="home-hero-swiper">
-          <!-- 轮播图主体图片 -->
+        <!-- <div class="home-hero-swiper">
           <div class="swiper-wrapper">
             <div class="swiper-slide">
               <a href="#">
@@ -30,18 +28,46 @@
               </a>
             </div>
           </div>
-          <!-- 轮播图跳转页 -->
           <div class="swiper-pagination">
             <a></a>
             <a></a>
             <a></a>
             <a></a>
           </div>
-          <!-- 轮播图上一页 -->
           <div class="swiper-button-prev"></div>
-          <!-- 轮播图下一页 -->
           <div class="swiper-button-next"></div>
-        </div>
+        </div> -->
+        <swiper :options="swiperOption" ref="mySwiper">
+          <!-- slides -->
+          <swiper-slide>
+            <img
+              src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/5084e471aa2554867cd1c9bf333a83e4.jpg?thumb=1&w=1226&h=460&f=webp&q=90"
+              alt=""
+            />
+          </swiper-slide>
+          <swiper-slide>
+            <img
+              src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/a5ebb3ecd10ba5b5f1fa25125d034492.jpg?thumb=1&w=1226&h=460&f=webp&q=90"
+              alt=""
+            />
+          </swiper-slide>
+          <swiper-slide>
+            <img
+              src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/175b22f0032803f8bdbd94590c8c6629.jpeg?thumb=1&w=1226&h=460&f=webp&q=90"
+              alt=""
+            />
+          </swiper-slide>
+          <swiper-slide>
+            <img
+              src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/96b2b6279cbfca1c1d78f463ccf40fcf.jpg?thumb=1&w=1226&h=460&f=webp&q=90"
+              alt=""
+            />
+          </swiper-slide>
+          <!-- Optional controls -->
+          <div class="swiper-pagination" slot="pagination"></div>
+          <div class="swiper-button-prev" slot="button-prev"></div>
+          <div class="swiper-button-next" slot="button-next"></div>
+        </swiper>
         <div class="home-hero-sub">
           <div class="convenient">
             <ul>
@@ -631,181 +657,213 @@
         </div>
       </div>
     </div>
+    <Footer></Footer>
+    <ToolBar></ToolBar>
   </div>
 </template>
 
 <script>
-import IndexHeader from '../components/IndexHeader.vue'
+import 'swiper/dist/css/swiper.css'
+import { swiper, swiperSlide } from 'vue-awesome-swiper'
+
+import Header from '../components/Header.vue'
+import Footer from '../components/Footer.vue'
+import ToolBar from '../components/ToolBar.vue'
 
 export default {
+  data() {
+    return {
+      swiperOption: {
+        loop: true,
+        autoplay: true,
+        pagination: {
+          el: '.swiper-pagination',
+          clickable: true
+        },
+        navigation: {
+          nextEl: '.swiper-button-next',
+          prevEl: '.swiper-button-prev'
+        }
+      }
+    }
+  },
   components: {
-    IndexHeader
+    Header,
+    Footer,
+    ToolBar,
+    swiper,
+    swiperSlide
   }
 }
 </script>
 
 <style lang="less" scoped>
+ul::before {
+  content: '';
+  display: table;
+}
+ul::after {
+  content: '';
+  clear: both;
+  display: table;
+}
+
+.swiper-wrapper {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  box-sizing: content-box;
+}
+
+.swiper-pagination {
+  position: absolute;
+  width: 400px;
+  left: auto;
+  right: 30px;
+  bottom: 20px;
+  text-align: right;
+
+  .swiper-pagination-bullet {
+    display: inline-block;
+    margin: 0 4px;
+    width: 6px;
+    height: 6px;
+    border: 2px solid #fff;
+    border-color: hsla(0, 0%, 100%, 0.3);
+    border-radius: 10px;
+    overflow: hidden;
+    background: rgba(0, 0, 0, 0.4);
+    cursor: pointer;
+  }
+}
+
+.swiper-button-prev {
+  position: absolute;
+  top: 50%;
+  left: 234px;
+  width: 41px;
+  height: 69px;
+  margin-top: -35px;
+  cursor: pointer;
+  outline: none;
+  border-top-right-radius: 3px;
+  border-bottom-right-radius: 3px;
+  background: url(//i1.mifile.cn/f/i/2014/cn/icon/icon-slides.png) no-repeat -84px
+    50%;
+}
+
+.swiper-button-prev:hover {
+  background: url(//i1.mifile.cn/f/i/2014/cn/icon/icon-slides.png) no-repeat 0px
+    50%;
+}
+
+.swiper-button-next {
+  position: absolute;
+  top: 50%;
+  right: 0;
+  width: 41px;
+  height: 69px;
+  margin-top: -35px;
+  cursor: pointer;
+  outline: none;
+  border-top-left-radius: 3px;
+  border-bottom-left-radius: 3px;
+  background: url(//i1.mifile.cn/f/i/2014/cn/icon/icon-slides.png) no-repeat -125px
+    50%;
+}
+
+.swiper-button-next:hover {
+  background: url(//i1.mifile.cn/f/i/2014/cn/icon/icon-slides.png) no-repeat -42px
+    50%;
+}
+
+.home-hero-sub {
+  margin-top: 14px;
+  .convenient {
+    width: 234px;
+    float: left;
+    ul {
+      margin: 0;
+      padding: 3px;
+      list-style-type: none;
+      font-size: 12px;
+      text-align: center;
+      background: #5f5750;
+      li {
+        float: left;
+        width: 70px;
+        height: 82px;
+        padding: 0 3px;
+        a {
+          display: block;
+          padding-top: 18px;
+          text-overflow: ellipsis;
+          color: #fff;
+          opacity: 0.7;
+          transition: opacity 0.2s;
+          img {
+            display: block;
+            width: 24px;
+            height: 24px;
+            margin: 0 auto 4px;
+          }
+        }
+        a:hover {
+          opacity: 1;
+        }
+      }
+    }
+
+    ul::before {
+      content: '';
+      display: table;
+    }
+
+    ul::after {
+      content: '';
+      clear: both;
+      display: table;
+    }
+  }
+  .recommend {
+    width: 978px;
+    float: left;
+    margin-left: 14px;
+    ul {
+      li {
+        float: left;
+        width: 316px;
+        height: 170px;
+        margin-left: 15px;
+        transition: box-shadow 0.2s linear;
+        a {
+          display: block;
+          height: 170px;
+          background: url(//i1.mifile.cn/f/i/2014/cn/placeholder-80.png)
+            no-repeat 50%;
+          img {
+            width: 316px;
+            height: 170px;
+          }
+        }
+      }
+      li:hover {
+        box-shadow: 0 15px 30px rgba(204, 204, 204);
+      }
+
+      .first {
+        margin-left: 0;
+      }
+    }
+  }
+}
+
 .home-hero-container {
   width: 1226px;
   margin: 0 auto;
   .home-hero {
     position: relative;
     margin-bottom: 26px;
-
-    // 轮播图主体
-    .home-hero-swiper {
-      position: relative;
-      height: 460px;
-      overflow: hidden;
-      .swiper-wrapper {
-        position: relative;
-        width: 100%;
-        height: 100%;
-        box-sizing: content-box;
-      }
-
-      .swiper-pagination {
-        position: absolute;
-        width: 400px;
-        left: auto;
-        right: 30px;
-        bottom: 20px;
-        text-align: right;
-
-        a {
-          display: inline-block;
-          margin: 0 4px;
-          width: 6px;
-          height: 6px;
-          border: 2px solid #fff;
-          border-color: hsla(0, 0%, 100%, 0.3);
-          border-radius: 10px;
-          overflow: hidden;
-          background: rgba(0, 0, 0, 0.4);
-          cursor: pointer;
-        }
-      }
-
-      .swiper-button-prev {
-        position: absolute;
-        top: 50%;
-        left: 234px;
-        width: 41px;
-        height: 69px;
-        margin-top: -35px;
-        cursor: pointer;
-        outline: none;
-        border-top-right-radius: 3px;
-        border-bottom-right-radius: 3px;
-        background: url(//i1.mifile.cn/f/i/2014/cn/icon/icon-slides.png)
-          no-repeat -84px 50%;
-      }
-
-      .swiper-button-prev:hover {
-        background: url(//i1.mifile.cn/f/i/2014/cn/icon/icon-slides.png)
-          no-repeat 0px 50%;
-      }
-
-      .swiper-button-next {
-        position: absolute;
-        top: 50%;
-        right: 0;
-        width: 41px;
-        height: 69px;
-        margin-top: -35px;
-        cursor: pointer;
-        outline: none;
-        border-top-left-radius: 3px;
-        border-bottom-left-radius: 3px;
-        background: url(//i1.mifile.cn/f/i/2014/cn/icon/icon-slides.png)
-          no-repeat -125px 50%;
-      }
-
-      .swiper-button-next:hover {
-        background: url(//i1.mifile.cn/f/i/2014/cn/icon/icon-slides.png)
-          no-repeat -42px 50%;
-      }
-    }
-    .home-hero-sub {
-      margin-top: 14px;
-      .convenient {
-        width: 234px;
-        float: left;
-        ul {
-          margin: 0;
-          padding: 3px;
-          list-style-type: none;
-          font-size: 12px;
-          text-align: center;
-          background: #5f5750;
-          li {
-            float: left;
-            width: 70px;
-            height: 82px;
-            padding: 0 3px;
-            a {
-              display: block;
-              padding-top: 18px;
-              text-overflow: ellipsis;
-              color: #fff;
-              opacity: 0.7;
-              transition: opacity 0.2s;
-              img {
-                display: block;
-                width: 24px;
-                height: 24px;
-                margin: 0 auto 4px;
-              }
-            }
-            a:hover {
-              opacity: 1;
-            }
-          }
-        }
-
-        ul::before {
-          content: '';
-          display: table;
-        }
-
-        ul::after {
-          content: '';
-          clear: both;
-          display: table;
-        }
-      }
-      .recommend {
-        width: 978px;
-        float: left;
-        margin-left: 14px;
-        ul {
-          li {
-            float: left;
-            width: 316px;
-            height: 170px;
-            margin-left: 15px;
-            transition: box-shadow 0.2s linear;
-            a {
-              display: block;
-              height: 170px;
-              background: url(//i1.mifile.cn/f/i/2014/cn/placeholder-80.png)
-                no-repeat 50%;
-              img {
-                width: 316px;
-                height: 170px;
-              }
-            }
-          }
-          li:hover {
-            box-shadow: 0 15px 30px rgba(204, 204, 204);
-          }
-
-          .first {
-            margin-left: 0;
-          }
-        }
-      }
-    }
 
     .home-hero-sub::before {
       content: '';
@@ -1308,6 +1366,7 @@ export default {
         }
       }
       .box-bd {
+        height: 299px;
         ul {
           width: 1226px;
           height: 285px;

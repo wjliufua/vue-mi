@@ -3,13 +3,15 @@
     <a href="#">
       <div class="icon">
         <img
+          class="mouseDefault"
           src="https://i8.mifile.cn/b2c-mimall-media/98a23aae70f25798192693f21c4d4039.png"
           alt=""
         />
-        <!-- <img
+        <img
+          class="mouseHover"
           src="https://i8.mifile.cn/b2c-mimall-media/74c4fcb4475af8308e9a670db9c01fdf.png"
           alt=""
-        /> -->
+        />
       </div>
       <span class="text">手机App</span>
       <div class="pop-content">
@@ -23,10 +25,12 @@
     <a href="#">
       <div class="icon">
         <img
+          class="mouseDefault"
           src="https://i8.mifile.cn/b2c-mimall-media/55cad219421bee03a801775e7309b920.png"
           alt=""
         />
         <img
+          class="mouseHover"
           src="https://i8.mifile.cn/b2c-mimall-media/41f858550f42eb1770b97faf219ae215.png"
           alt=""
         />
@@ -36,10 +40,12 @@
     <a href="#">
       <div class="icon">
         <img
+          class="mouseDefault"
           src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/12eb0965ab33dc8e05870911b90f3f13.png"
           alt=""
         />
         <img
+          class="mouseHover"
           src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/95fbf0081a06eec7be4d35e277faeca0.png"
           alt=""
         />
@@ -49,10 +55,12 @@
     <a href="#">
       <div class="icon">
         <img
+          class="mouseDefault"
           src="https://i8.mifile.cn/b2c-mimall-media/4f036ae4d45002b2a6fb6756cedebf02.png"
           alt=""
         />
         <img
+          class="mouseHover"
           src="https://i8.mifile.cn/b2c-mimall-media/5e9f2b1b0da09ac3b3961378284ef2d4.png"
           alt=""
         />
@@ -62,10 +70,12 @@
     <a href="#">
       <div class="icon">
         <img
+          class="mouseDefault"
           src="https://i8.mifile.cn/b2c-mimall-media/d7db56d1d850113f016c95e289e36efa.png"
           alt=""
         />
         <img
+          class="mouseHover"
           src="https://i8.mifile.cn/b2c-mimall-media/692a6c3b0a93a24f74a29c0f9d68ec71.png"
           alt=""
         />
@@ -74,8 +84,16 @@
     </a>
     <a href="#">
       <div class="icon">
-        <img src="//i1.mifile.cn/f/i/2018/home/totop.png" alt="" />
-        <img src="//i1.mifile.cn/f/i/2018/home/totop_hover.png" alt="" />
+        <img
+          class="mouseDefault"
+          src="//i1.mifile.cn/f/i/2018/home/totop.png"
+          alt=""
+        />
+        <img
+          class="mouseHover"
+          src="//i1.mifile.cn/f/i/2018/home/totop_hover.png"
+          alt=""
+        />
       </div>
       <span class="text">回顶部</span>
     </a>
@@ -119,6 +137,9 @@ export default {
         height: 30px;
         transition: opacity 0.3s;
       }
+      .mouseHover {
+        display: none;
+      }
     }
     .text {
       color: #757575;
@@ -152,6 +173,9 @@ export default {
   a:last-child {
     margin-top: 14px;
     border-top: 1px solid #f5f5f5;
+  }
+  a:hover .mouseHover {
+    display: none !important;
   }
   a:hover .pop-content {
     visibility: visible;

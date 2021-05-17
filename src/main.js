@@ -1,6 +1,6 @@
 import Vue from 'vue'
 // 引入jquery
-import $ from 'jquery'
+// import $ from 'jquery'
 
 import App from './App.vue'
 import router from './router'
@@ -15,7 +15,7 @@ import 'swiper/dist/css/swiper.css'
 Vue.use(VueAwesomeSwiper /* { default global options } */)
 
 Vue.config.productionTip = false
-Vue.prototype.$jq = $
+// Vue.prototype.$jq = $
 
 new Vue({
   router,

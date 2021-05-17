@@ -37,8 +37,12 @@
           <div class="swiper-button-prev"></div>
           <div class="swiper-button-next"></div>
         </div> -->
-        <swiper :options="swiperOption" ref="mySwiper">
-          <!-- slides -->
+        <swiper
+          :options="bannerHomeSwiper"
+          ref="mySwiper"
+          class="bannerHomeSwiper"
+        >
+          <!-- swiper-slide 轮播图的每一项 -->
           <swiper-slide>
             <img
               src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/5084e471aa2554867cd1c9bf333a83e4.jpg?thumb=1&w=1226&h=460&f=webp&q=90"
@@ -63,8 +67,9 @@
               alt=""
             />
           </swiper-slide>
-          <!-- Optional controls -->
+          <!-- 分页 -->
           <div class="swiper-pagination" slot="pagination"></div>
+          <!-- 上一页 下一页 点击按钮 -->
           <div class="swiper-button-prev" slot="button-prev"></div>
           <div class="swiper-button-next" slot="button-next"></div>
         </swiper>
@@ -166,15 +171,202 @@
               <img src="../assets/seckill.png" alt="小米闪购" />
               <div class="desc">本场已结束</div>
               <div class="countdown">
-                <span>00</span>
+                <span>{{ flashSaleHou }}</span>
                 <i>:</i>
-                <span>00</span>
+                <span>{{ flashSaleMin }}</span>
                 <i>:</i>
-                <span>00</span>
+                <span>{{ flashSaleSec }}</span>
               </div>
             </div>
             <div class="flashsale-list">
-              <ul>
+              <swiper
+                :options="flashSaleHomeSwiper"
+                ref="flashSaleSwiper"
+                class="flashSaleHomeSwiper"
+              >
+                <!-- swiper-slide 轮播图的每一项 -->
+                <swiper-slide>
+                  <a href="#">
+                    <div class="content">
+                      <div class="thumb">
+                        <img
+                          src="//cdn.cnbj1.fds.api.mi-img.com/mi-mall/1c2d4d189980dcb86af402595206f002.png?thumb=1&w=200&h=200&f=webp&q=90"
+                          alt="全面屏电视Pro 32英寸 E32S"
+                        />
+                      </div>
+                      <h3 class="title">全面屏电视Pro 32英寸 E32S</h3>
+                      <p class="desc">多种连接方式，满足多样的娱乐需求</p>
+                      <p class="price"><span>999</span>元<del>1099元</del></p>
+                    </div>
+                  </a>
+                </swiper-slide>
+                <swiper-slide>
+                  <a href="#">
+                    <div class="content">
+                      <div class="thumb">
+                        <img
+                          src="//cdn.cnbj1.fds.api.mi-img.com/mi-mall/1c2d4d189980dcb86af402595206f002.png?thumb=1&w=200&h=200&f=webp&q=90"
+                          alt="全面屏电视Pro 32英寸 E32S"
+                        />
+                      </div>
+                      <h3 class="title">全面屏电视Pro 32英寸 E32S</h3>
+                      <p class="desc">多种连接方式，满足多样的娱乐需求</p>
+                      <p class="price"><span>999</span>元<del>1099元</del></p>
+                    </div>
+                  </a>
+                </swiper-slide>
+                <swiper-slide>
+                  <a href="#">
+                    <div class="content">
+                      <div class="thumb">
+                        <img
+                          src="//cdn.cnbj1.fds.api.mi-img.com/mi-mall/1c2d4d189980dcb86af402595206f002.png?thumb=1&w=200&h=200&f=webp&q=90"
+                          alt="全面屏电视Pro 32英寸 E32S"
+                        />
+                      </div>
+                      <h3 class="title">全面屏电视Pro 32英寸 E32S</h3>
+                      <p class="desc">多种连接方式，满足多样的娱乐需求</p>
+                      <p class="price"><span>999</span>元<del>1099元</del></p>
+                    </div>
+                  </a>
+                </swiper-slide>
+                <swiper-slide>
+                  <a href="#">
+                    <div class="content">
+                      <div class="thumb">
+                        <img
+                          src="//cdn.cnbj1.fds.api.mi-img.com/mi-mall/1c2d4d189980dcb86af402595206f002.png?thumb=1&w=200&h=200&f=webp&q=90"
+                          alt="全面屏电视Pro 32英寸 E32S"
+                        />
+                      </div>
+                      <h3 class="title">全面屏电视Pro 32英寸 E32S</h3>
+                      <p class="desc">多种连接方式，满足多样的娱乐需求</p>
+                      <p class="price"><span>999</span>元<del>1099元</del></p>
+                    </div>
+                  </a>
+                </swiper-slide>
+                <swiper-slide>
+                  <a href="#">
+                    <div class="content">
+                      <div class="thumb">
+                        <img
+                          src="//cdn.cnbj1.fds.api.mi-img.com/mi-mall/5f03fbaa9f17d62b0e2e0687b5d8fabc.png?thumb=1&w=200&h=200&f=webp&q=90"
+                          alt="全面屏电视Pro 32英寸 E32S"
+                        />
+                      </div>
+                      <h3 class="title">全面屏电视Pro 32英寸 E32S</h3>
+                      <p class="desc">多种连接方式，满足多样的娱乐需求</p>
+                      <p class="price"><span>999</span>元<del>1099元</del></p>
+                    </div>
+                  </a>
+                </swiper-slide>
+                <swiper-slide>
+                  <a href="#">
+                    <div class="content">
+                      <div class="thumb">
+                        <img
+                          src="//cdn.cnbj1.fds.api.mi-img.com/mi-mall/5f03fbaa9f17d62b0e2e0687b5d8fabc.png?thumb=1&w=200&h=200&f=webp&q=90"
+                          alt="全面屏电视Pro 32英寸 E32S"
+                        />
+                      </div>
+                      <h3 class="title">全面屏电视Pro 32英寸 E32S</h3>
+                      <p class="desc">多种连接方式，满足多样的娱乐需求</p>
+                      <p class="price"><span>999</span>元<del>1099元</del></p>
+                    </div>
+                  </a>
+                </swiper-slide>
+                <swiper-slide>
+                  <a href="#">
+                    <div class="content">
+                      <div class="thumb">
+                        <img
+                          src="//cdn.cnbj1.fds.api.mi-img.com/mi-mall/5f03fbaa9f17d62b0e2e0687b5d8fabc.png?thumb=1&w=200&h=200&f=webp&q=90"
+                          alt="全面屏电视Pro 32英寸 E32S"
+                        />
+                      </div>
+                      <h3 class="title">全面屏电视Pro 32英寸 E32S</h3>
+                      <p class="desc">多种连接方式，满足多样的娱乐需求</p>
+                      <p class="price"><span>999</span>元<del>1099元</del></p>
+                    </div>
+                  </a>
+                </swiper-slide>
+                <swiper-slide>
+                  <a href="#">
+                    <div class="content">
+                      <div class="thumb">
+                        <img
+                          src="//cdn.cnbj1.fds.api.mi-img.com/mi-mall/5f03fbaa9f17d62b0e2e0687b5d8fabc.png?thumb=1&w=200&h=200&f=webp&q=90"
+                          alt="全面屏电视Pro 32英寸 E32S"
+                        />
+                      </div>
+                      <h3 class="title">全面屏电视Pro 32英寸 E32S</h3>
+                      <p class="desc">多种连接方式，满足多样的娱乐需求</p>
+                      <p class="price"><span>999</span>元<del>1099元</del></p>
+                    </div>
+                  </a>
+                </swiper-slide>
+                <swiper-slide>
+                  <a href="#">
+                    <div class="content">
+                      <div class="thumb">
+                        <img
+                          src="//cdn.cnbj1.fds.api.mi-img.com/mi-mall/730055892c1afa7b6d8128c0938b5277.png?thumb=1&w=200&h=200&f=webp&q=90"
+                          alt="全面屏电视Pro 32英寸 E32S"
+                        />
+                      </div>
+                      <h3 class="title">全面屏电视Pro 32英寸 E32S</h3>
+                      <p class="desc">多种连接方式，满足多样的娱乐需求</p>
+                      <p class="price"><span>999</span>元<del>1099元</del></p>
+                    </div>
+                  </a>
+                </swiper-slide>
+                <swiper-slide>
+                  <a href="#">
+                    <div class="content">
+                      <div class="thumb">
+                        <img
+                          src="//cdn.cnbj1.fds.api.mi-img.com/mi-mall/730055892c1afa7b6d8128c0938b5277.png?thumb=1&w=200&h=200&f=webp&q=90"
+                          alt="全面屏电视Pro 32英寸 E32S"
+                        />
+                      </div>
+                      <h3 class="title">全面屏电视Pro 32英寸 E32S</h3>
+                      <p class="desc">多种连接方式，满足多样的娱乐需求</p>
+                      <p class="price"><span>999</span>元<del>1099元</del></p>
+                    </div>
+                  </a>
+                </swiper-slide>
+                <swiper-slide>
+                  <a href="#">
+                    <div class="content">
+                      <div class="thumb">
+                        <img
+                          src="//cdn.cnbj1.fds.api.mi-img.com/mi-mall/730055892c1afa7b6d8128c0938b5277.png?thumb=1&w=200&h=200&f=webp&q=90"
+                          alt="全面屏电视Pro 32英寸 E32S"
+                        />
+                      </div>
+                      <h3 class="title">全面屏电视Pro 32英寸 E32S</h3>
+                      <p class="desc">多种连接方式，满足多样的娱乐需求</p>
+                      <p class="price"><span>999</span>元<del>1099元</del></p>
+                    </div>
+                  </a>
+                </swiper-slide>
+                <swiper-slide>
+                  <a href="#">
+                    <div class="content">
+                      <div class="thumb">
+                        <img
+                          src="//cdn.cnbj1.fds.api.mi-img.com/mi-mall/730055892c1afa7b6d8128c0938b5277.png?thumb=1&w=200&h=200&f=webp&q=90"
+                          alt="全面屏电视Pro 32英寸 E32S"
+                        />
+                      </div>
+                      <h3 class="title">全面屏电视Pro 32英寸 E32S</h3>
+                      <p class="desc">多种连接方式，满足多样的娱乐需求</p>
+                      <p class="price"><span>999</span>元<del>1099元</del></p>
+                    </div>
+                  </a>
+                </swiper-slide>
+              </swiper>
+              <ul style="display:none;">
                 <li>
                   <a href="#">
                     <div class="content">
@@ -238,13 +430,24 @@
               </ul>
             </div>
             <div class="flashsale-controls">
+              <!-- 上一页 下一页 点击按钮 -->
+              <!-- <div class="swiper-flashsale-prev" slot="button-prev"></div>
+              <div class="swiper-flashsale-next" slot="button-next"></div> -->
+              <span class="swiper-flashsale-prev" slot="button-prev">
+                <i class="iconfont icon-zuojiantou3"></i>
+              </span>
+              <span class="swiper-flashsale-next" slot="button-next">
+                <i class="iconfont icon-youjiantou1"></i>
+              </span>
+            </div>
+            <!-- <div class="flashsale-controls">
               <span class="flashsale-pre">
                 <i class="iconfont icon-zuojiantou3"></i>
               </span>
               <span class="flashsale-next">
                 <i class="iconfont icon-youjiantou1"></i>
               </span>
-            </div>
+            </div> -->
           </div>
         </div>
 
@@ -673,9 +876,23 @@ import ToolBar from '../components/ToolBar.vue'
 export default {
   data() {
     return {
-      swiperOption: {
+      flashSaleDate: new Date(),
+      flashSaleHou: 0,
+      flashSaleMin: 0,
+      flashSaleSec: 0,
+      // flashSaleSsec: 0,
+      flashSaleEndTime: '',
+      flashSaleDisprArr: [],
+      bannerHomeSwiper: {
         loop: true,
-        autoplay: true,
+        spaceBetween: 30,
+        centeredSlides: true,
+        autoplay: {
+          delay: 2500,
+          disableOnInteraction: false
+        },
+        effect: 'fade',
+        fadeEffect: true,
         pagination: {
           el: '.swiper-pagination',
           clickable: true
@@ -684,7 +901,54 @@ export default {
           nextEl: '.swiper-button-next',
           prevEl: '.swiper-button-prev'
         }
+      },
+      flashSaleHomeSwiper: {
+        slidesPerView: 4,
+        slidesPerGroup: 4,
+        spaceBetween: 30,
+        freeMode: true,
+        navigation: {
+          nextEl: '.swiper-flashsale-next',
+          prevEl: '.swiper-flashsale-prev'
+        }
       }
+    }
+  },
+  methods: {
+    flashSaleSwiperStyle() {
+      // console.log(this.$refs.flashSaleSwiper.$children[0].$el.style.marginRight)
+      // console.log(this.$refs.flashSaleSwiper.$children[0].$el.style.width)
+      this.$refs.flashSaleSwiper.$children.forEach(item => {
+        item.$el.style.marginRight = '14px'
+        item.$el.style.width = '234px'
+      })
+      // console.log(this.$refs.flashSaleSwiper.$children[0].$el.style.marginRight)
+      // console.log(this.$refs.flashSaleSwiper.$children[0].$el.style.width)
+    },
+    time() {
+      const that = this
+      const dateEnd = Date.parse(new Date()) + 7200 * 1000
+      setInterval(function timestampToTime() {
+        const date = dateEnd - Date.parse(new Date())
+        if (date > 0) {
+          // console.log(4444)
+          const time = date / 1000
+          that.flashSaleHou = parseInt(time / 3600)
+          that.flashSaleMin = parseInt((time - that.flashSaleHou * 3600) / 60)
+          that.flashSaleSec = parseInt(
+            time - that.flashSaleHou * 3600 - that.flashSaleMin * 60
+          )
+          // console.log(that.flashSaleHou)
+          // console.log(that.flashSaleMin)
+          // console.log(that.flashSaleSec)
+        } else {
+          that.day = 0
+          that.flashSaleHou = 0
+          that.flashSaleMin = 0
+          that.flashSaleSec = 0
+        }
+        // that.$forceUpdate()
+      }, 1000)
     }
   },
   components: {
@@ -693,6 +957,21 @@ export default {
     ToolBar,
     swiper,
     swiperSlide
+  },
+  created() {
+    // let that = this
+    // this.time()
+  },
+  watch: {
+    flashSaleDate: function() {
+      console.log(this.flashSaleDate)
+    }
+  },
+  mounted() {
+    this.$nextTick(function() {
+      this.flashSaleSwiperStyle()
+      this.time()
+    })
   }
 }
 </script>
@@ -708,73 +987,190 @@ ul::after {
   display: table;
 }
 
-.swiper-wrapper {
-  position: relative;
-  width: 100%;
-  height: 100%;
-  box-sizing: content-box;
-}
+.bannerHomeSwiper {
+  .swiper-wrapper {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    box-sizing: content-box;
+  }
 
-.swiper-pagination {
-  position: absolute;
-  width: 400px;
-  left: auto;
-  right: 30px;
-  bottom: 20px;
-  text-align: right;
+  .swiper-pagination {
+    position: absolute;
+    width: 400px;
+    left: auto;
+    right: 30px;
+    bottom: 20px;
+    text-align: right;
 
-  .swiper-pagination-bullet {
-    display: inline-block;
-    margin: 0 4px;
-    width: 6px;
-    height: 6px;
-    border: 2px solid #fff;
-    border-color: hsla(0, 0%, 100%, 0.3);
-    border-radius: 10px;
-    overflow: hidden;
-    background: rgba(0, 0, 0, 0.4);
+    /deep/ .swiper-pagination-bullet {
+      display: inline-block;
+      margin: 0 4px;
+      width: 6px;
+      height: 6px;
+      border: 2px solid #fff;
+      border-color: hsla(0, 0%, 100%, 0.3);
+      border-radius: 10px;
+      overflow: hidden;
+      background: rgba(0, 0, 0, 0.4);
+      opacity: 1;
+      cursor: pointer;
+    }
+    /deep/ .swiper-pagination-bullet-active {
+      background: hsla(0, 0%, 100%, 0.4);
+      border-color: rgba(0, 0, 0, 0.4);
+    }
+  }
+
+  .swiper-button-prev {
+    position: absolute;
+    top: 50%;
+    left: 234px;
+    width: 41px;
+    height: 69px;
+    margin-top: -35px;
     cursor: pointer;
+    outline: none;
+    border-top-right-radius: 3px;
+    border-bottom-right-radius: 3px;
+    background: url(//i1.mifile.cn/f/i/2014/cn/icon/icon-slides.png) no-repeat -84px
+      50%;
+  }
+
+  .swiper-button-prev:hover {
+    background: url(//i1.mifile.cn/f/i/2014/cn/icon/icon-slides.png) no-repeat
+      0px 50%;
+  }
+
+  .swiper-button-next {
+    position: absolute;
+    top: 50%;
+    right: 0;
+    width: 41px;
+    height: 69px;
+    margin-top: -35px;
+    cursor: pointer;
+    outline: none;
+    border-top-left-radius: 3px;
+    border-bottom-left-radius: 3px;
+    background: url(//i1.mifile.cn/f/i/2014/cn/icon/icon-slides.png) no-repeat -125px
+      50%;
+  }
+
+  .swiper-button-next:hover {
+    background: url(//i1.mifile.cn/f/i/2014/cn/icon/icon-slides.png) no-repeat -42px
+      50%;
   }
 }
 
-.swiper-button-prev {
-  position: absolute;
-  top: 50%;
-  left: 234px;
-  width: 41px;
-  height: 69px;
-  margin-top: -35px;
-  cursor: pointer;
-  outline: none;
-  border-top-right-radius: 3px;
-  border-bottom-right-radius: 3px;
-  background: url(//i1.mifile.cn/f/i/2014/cn/icon/icon-slides.png) no-repeat -84px
-    50%;
+.flashSaleHomeSwiper {
+  height: 340px;
+  width: 100%;
+  display: flex;
+  transition-property: transform, -webkit-transform;
+  box-sizing: content-box;
+  .swiper-slide {
+    width: 234px;
+    margin-right: 14px;
+    border-top-width: 1px;
+    border-top-style: solid;
+    text-align: center;
+    background: #fff;
+    transition: all 0.6s;
+    list-style: none;
+    border-top-color: #ffac13;
+    a {
+      display: block;
+      padding: 0 1px;
+      height: 300px;
+      padding-top: 39px;
+      position: relative;
+      text-decoration: none;
+      color: #757575;
+      background: rgba(0, 0, 0, 0);
+      .content {
+        .thumb {
+          width: 160px;
+          margin: 0 auto 22px;
+          img {
+            width: 160px;
+            height: 160px;
+          }
+        }
+        .title {
+          margin: 0 20px 3px;
+          font-size: 14px;
+          font-weight: 400;
+          text-overflow: ellipsis;
+          color: #212121;
+          overflow: hidden;
+          white-space: nowrap;
+        }
+        .desc {
+          height: 18px;
+          margin: 0 20px 12px;
+          font-size: 12px;
+          text-overflow: ellipsis;
+          color: #b0b0b0;
+          overflow: hidden;
+          white-space: nowrap;
+        }
+        .price {
+          margin: 0;
+          color: #ff6709;
+          del {
+            margin-left: 3px;
+            color: #b0b0b0;
+          }
+        }
+      }
+    }
+    a::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      z-index: 2;
+      background: rgba(0, 0, 0, 0.02);
+    }
+  }
 }
 
-.swiper-button-prev:hover {
-  background: url(//i1.mifile.cn/f/i/2014/cn/icon/icon-slides.png) no-repeat 0px
-    50%;
-}
-
-.swiper-button-next {
+.flashsale-controls {
   position: absolute;
-  top: 50%;
   right: 0;
-  width: 41px;
-  height: 69px;
-  margin-top: -35px;
-  cursor: pointer;
-  outline: none;
-  border-top-left-radius: 3px;
-  border-bottom-left-radius: 3px;
-  background: url(//i1.mifile.cn/f/i/2014/cn/icon/icon-slides.png) no-repeat -125px
-    50%;
-}
-
-.swiper-button-next:hover {
-  background: url(//i1.mifile.cn/f/i/2014/cn/icon/icon-slides.png) no-repeat -42px
-    50%;
+  top: 24px;
+  .swiper-flashsale-prev {
+    display: inline-block;
+    width: 24px;
+    height: 16px;
+    padding: 3px 5px;
+    margin-left: -1px;
+    border: 1px solid #e0e0e0;
+    font-size: 16px;
+    line-height: 16px;
+    transition: color 0.5s;
+    text-align: center;
+    cursor: pointer;
+  }
+  .swiper-flashsale-next {
+    display: inline-block;
+    width: 24px;
+    height: 16px;
+    padding: 3px 5px;
+    margin-left: -1px;
+    border: 1px solid #e0e0e0;
+    font-size: 16px;
+    line-height: 16px;
+    transition: color 0.5s;
+    text-align: center;
+    cursor: pointer;
+  }
+  span:hover {
+    color: #ff6700;
+  }
 }
 
 .home-hero-sub {
@@ -903,7 +1299,7 @@ ul::after {
           border-top-color: #e53935;
           height: 300px;
           width: 234px;
-          padding-top: 30px;
+          padding-top: 39px;
           border-top-width: 1px;
           border-top-style: solid;
           background: #f1eded;
@@ -1028,40 +1424,6 @@ ul::after {
                 background: rgba(0, 0, 0, 0.02);
               }
             }
-          }
-        }
-        .flashsale-controls {
-          position: absolute;
-          right: 0;
-          top: 24px;
-          .flashsale-pre {
-            display: inline-block;
-            width: 24px;
-            height: 16px;
-            padding: 3px 5px;
-            margin-left: -1px;
-            border: 1px solid #e0e0e0;
-            font-size: 16px;
-            line-height: 16px;
-            transition: color 0.5s;
-            text-align: center;
-            cursor: pointer;
-          }
-          .flashsale-next {
-            display: inline-block;
-            width: 24px;
-            height: 16px;
-            padding: 3px 5px;
-            margin-left: -1px;
-            border: 1px solid #e0e0e0;
-            font-size: 16px;
-            line-height: 16px;
-            transition: color 0.5s;
-            text-align: center;
-            cursor: pointer;
-          }
-          span:hover {
-            color: #ff6700;
           }
         }
       }

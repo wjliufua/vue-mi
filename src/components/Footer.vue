@@ -190,6 +190,7 @@
             <a href="#">互联网药品信息服务资格证 (京)-非经营性-2014-0090</a>
             <a href="#">营业执照</a>
             <a href="#">医疗器械质量公告</a>
+            <br />
             <a href="#">增值电信业务许可证</a>
             &nbsp;网络食品经营备案 京食药网食备202010048&nbsp;
             <a href="#">食品经营许可证</a>
@@ -285,6 +286,9 @@ a:hover {
               line-height: 24px;
               vertical-align: -4px;
             }
+          }
+          a:hover {
+            color: #ff6700;
           }
         }
         li:first-child {
@@ -461,7 +465,8 @@ a:hover {
     }
     .info-links {
       height: 28px;
-      margin: 4px 0 15px;
+      margin: 4px 0 0;
+      padding-bottom: 15px;
       padding-left: 67px;
       a {
         display: inline-block;

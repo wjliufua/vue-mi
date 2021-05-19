@@ -1,6 +1,10 @@
 <template>
   <div class="tool-bar">
-    <a href="#">
+    <a
+      href="#"
+      @mouseenter.self="activeToolBarShow(1, true)"
+      @mouseleave.self="activeToolBarShow(0, false)"
+    >
       <div class="icon">
         <img
           class="mouseDefault"
@@ -9,14 +13,15 @@
         />
         <img
           class="mouseHover"
+          :style="mouseHoverShow"
           src="https://i8.mifile.cn/b2c-mimall-media/74c4fcb4475af8308e9a670db9c01fdf.png"
           alt=""
         />
       </div>
       <span class="text">手机App</span>
-      <div class="pop-content">
+      <div class="pop-content" :style="popContentShow">
         <img
-          src="https://i8.mifile.cn/b2c-mimall-media/55cad219421bee03a801775e7309b920.png"
+          src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/78c30d4f259ed43ab20e810a522a6249.png"
           alt=""
         />
         <span>扫码领取新人百元红包</span>
@@ -82,7 +87,7 @@
       </div>
       <span class="text">购物车</span>
     </a>
-    <a href="#">
+    <a href="#" :style="toolBarBackTopHeight">
       <div class="icon">
         <img
           class="mouseDefault"
@@ -103,7 +108,52 @@
 <script>
 export default {
   data() {
-    return {}
+    return {
+      mouseHoverShow: {
+        opacity: 0
+      },
+      popContentShow: {
+        opacity: 0,
+        display: 'none'
+      },
+      toolBarBackTopHeight: {
+        opacity: 0
+      }
+    }
+  },
+  methods: {
+    activeToolBarShow(toolBarShow, popContentShow) {
+      this.mouseHoverShow.opacity = toolBarShow
+      this.popContentShow.opacity = 0
+      this.popContentShow.display = 'none'
+      if (popContentShow) {
+        this.popContentShow.opacity = 1
+        this.popContentShow.display = 'block'
+      }
+      // if (isToolBarShow) {
+      //   this.mouseHoverShow.opacity = 1
+      // } else {
+      //   this.mouseHoverShow.opacity = 0
+      // }
+    },
+    handleScroll() {
+      const scrollTop =
+        window.pageYOffset ||
+        document.documentElement.scrollTop ||
+        document.body.scrollTop
+      if (scrollTop > 700) {
+        this.toolBarBackTopHeight.opacity = 1
+      }
+      if (scrollTop < 700) {
+        this.toolBarBackTopHeight.opacity = 0
+      }
+    }
+  },
+  mounted() {
+    window.addEventListener('scroll', this.handleScroll)
+  },
+  destroyed() {
+    document.removeEventListener('scroll', this.handleScroll)
   }
 }
 </script>
@@ -120,6 +170,7 @@ export default {
     width: 82px;
     height: 90px;
     margin-top: -1px;
+    transition: opacity 0.3s;
     background-color: #fff;
     border: 1px solid #f5f5f5;
     text-align: center;
@@ -138,7 +189,9 @@ export default {
         transition: opacity 0.3s;
       }
       .mouseHover {
-        display: none;
+        // display: none;
+        opacity: 0;
+        transition: opacity 0.3s;
       }
     }
     .text {
@@ -146,15 +199,16 @@ export default {
     }
     .pop-content {
       position: absolute;
-      left: 0;
+      right: 100%;
       top: 0;
+      z-index: 2;
       padding: 14px;
       background: #fff;
       border: 1px solid #f5f5f5;
       transition: opacity 0.3s;
       transform: translateZ(0);
       opacity: 0;
-      visibility: hidden;
+      // visibility: hidden;
       img {
         display: block;
         width: 100px;
@@ -174,11 +228,11 @@ export default {
     margin-top: 14px;
     border-top: 1px solid #f5f5f5;
   }
-  a:hover .mouseHover {
-    display: none !important;
-  }
-  a:hover .pop-content {
-    visibility: visible;
-  }
+  // a:hover .mouseHover {
+  //   display: none;
+  // }
+  // a:hover .pop-content {
+  //   visibility: visible;
+  // }
 }
 </style>

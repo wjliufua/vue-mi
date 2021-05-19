@@ -86,7 +86,7 @@
                   <div class="side_category">
                     <ul>
                       <li>
-                        <a href="#" :mousemove="changeSideBox()">
+                        <a href="#">
                           手机 电话卡
                           <em class="iconfont icon-youjiantou1"></em>
                         </a>
@@ -611,11 +611,16 @@
               </li>
               <!-- 头部分类导航子项 -->
               <li class="nav_item">
-                <a href="#" class="link_category">
+                <a
+                  href="#"
+                  class="link_category"
+                  @mouseenter.self="navGoodsDropDownList(true)"
+                  @mouseleave.self="navGoodsDropDownList(false)"
+                >
                   <span class="category_text">小米手机</span>
                 </a>
                 <!-- 分类商品推荐列表 -->
-                <div class="item_children" :style="itemChildrenStyle">
+                <div class="item_children">
                   <div class="container">
                     <ul>
                       <li>
@@ -768,7 +773,12 @@
           </div>
         </div>
       </div>
-      <div class="header-nav-menu">
+      <div
+        class="header-nav-menu"
+        @mouseenter.self="navGoodsDropDownList(true)"
+        @mouseleave.self="navGoodsDropDownList(false)"
+        ref="navHeaderMenu"
+      >
         <div class="container">
           <ul>
             <li>
@@ -855,30 +865,31 @@ export default {
   data() {
     return {
       // 页面是否处于首页
-      index: false,
-      itemChildrenStyle: {
-        screenWidth: document.body.clientWidth,
-        width: window.innerWidth + 'px'
-      }
+      index: false
     }
   },
   created() {
     this.navCategoryShow()
-    // this.navGoodsDropDownList()
   },
   methods: {
     // 全部分类商品文本是否显示
     navCategoryShow() {
       this.$route.path === '/' ? (this.index = true) : (this.index = false)
     },
+    logVueCliThis() {
+      console.log(this)
+    },
     // 中间导航栏推荐商品下拉框
-    navGoodsDropDownList() {
-      // console.log(this)
-      // console.log(window.innerWidth)
-      // this.itemChildrenStyle.width = window.innerWidth + 'px'
-      // console.log(document.body.clientWidth)
-      // console.log(document.body.offsetWidth)
-      // console.log(document.body.scrollWidth)
+    navGoodsDropDownList(isNavHeaderMenuShow) {
+      // this.isHeaderNavMenuShow = isNavHeaderMenuShow
+      console.log(this.navMenuStyle)
+      if (isNavHeaderMenuShow) {
+        this.$refs.navHeaderMenu.style.height = '230px'
+        this.$refs.navHeaderMenu.style.opacity = 1
+      } else {
+        this.$refs.navHeaderMenu.style.height = '0px'
+        this.$refs.navHeaderMenu.style.opacity = 0
+      }
     },
     // 控制侧边商品分类盒子展开
     changeSideBox() {
@@ -886,11 +897,11 @@ export default {
     }
   },
   mounted() {
-    const that = this
+    this.logVueCliThis()
     window.onresize = () => {
       return (() => {
         window.screenWidth = document.body.clientWidth
-        that.screenWidth = window.screenWidth
+        this.screenWidth = window.screenWidth
       })()
     }
   }
@@ -898,6 +909,11 @@ export default {
 </script>
 
 <style lang="less" scoped>
+.headerNavMenuShow {
+  height: 230px;
+  opacity: 1;
+}
+
 .loader,
 .loader::before,
 .loader::after {
@@ -926,6 +942,11 @@ export default {
     transform: scale(1);
     opacity: 1;
   }
+}
+
+.headerNavMenuShow {
+  display: block;
+  height: 230px;
 }
 
 // 顶部导航条
@@ -1315,18 +1336,17 @@ export default {
                 // }
               }
 
-              & > a:hover {
-                background-color: #ff6700;
-              }
+              // & > a:hover {
+              //   background-color: #ff6700;
+              // }
 
               & > a:hover + .category_box {
-                display: block !important;
+                display: block;
               }
 
               .category_box {
-                display: none !important;
+                display: none;
                 width: 992px;
-                display: block;
                 position: absolute;
                 z-index: 1;
                 left: 234px;
@@ -1392,6 +1412,9 @@ export default {
               .category_box:hover {
                 display: block;
               }
+            }
+            & > li:hover {
+              background-color: #ff6700;
             }
           }
         }
@@ -1627,9 +1650,13 @@ export default {
 }
 
 .header-nav-menu {
-  display: none;
-  height: 230px;
-  transition: box-shadow 0.2s, height 0.3s, -webkit-box-shadow 0.2s;
+  // display: none;
+  height: 0px;
+  opacity: 0;
+  // transition: box-shadow 0.2s, opacity 0.3s, height 0.3s,
+  //   -webkit-box-shadow 0.2s;
+  box-shadow: 0 3px 4px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s;
   position: absolute;
   top: 140px;
   left: 0;
@@ -1692,5 +1719,9 @@ export default {
       }
     }
   }
+}
+.header-nav-menu:hover {
+  opacity: 1;
+  height: 230px;
 }
 </style>
